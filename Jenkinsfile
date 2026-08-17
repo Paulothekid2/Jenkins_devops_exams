@@ -18,7 +18,7 @@ pipeline {
         stage('Build & Push Docker Images') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
                         sh "echo ${DH_PASS} | docker login -u ${DH_USER} --password-stdin"
                         
                         sh "docker build -t ${CAST_IMAGE}:${BUILD_TAG} -t ${CAST_IMAGE}:latest ./cast-service"
