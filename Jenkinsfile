@@ -77,6 +77,7 @@ def deployHelm(String targetNamespace) {
     sh """
         helm upgrade --install api-release ./charts \
             --namespace ${targetNamespace} \
+            --create-namespace \
             --set castService.image.repository=${CAST_IMAGE} \
             --set castService.image.tag=${BUILD_TAG} \
             --set movieService.image.repository=${MOVIE_IMAGE} \
