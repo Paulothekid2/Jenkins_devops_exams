@@ -81,6 +81,7 @@ def deployHelm(String targetNamespace) {
             --set castService.image.repository=${CAST_IMAGE} \
             --set castService.image.tag=${BUILD_TAG} \
             --set movieService.image.repository=${MOVIE_IMAGE} \
-            --set movieService.image.tag=${BUILD_TAG}
+            --set movieService.image.tag=${BUILD_TAG} \
+            --set service.nodePort=30008
     """
 }
